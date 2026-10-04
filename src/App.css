@@ -1,0 +1,156 @@
+/* Container to cover the full viewport behind content */
+.balloon-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -1;
+  pointer-events: none; /* Prevents balloons from blocking clicks */
+  /* background: linear-gradient(180deg, #e0f2fe 0%, #f0f9ff 100%); */
+  background: #f7879a;
+}
+
+/* Base Balloon Shape */
+.balloon {
+  position: absolute;
+  bottom: -150px; /* Start below the viewport */
+  width: 60px;
+  height: 75px;
+  background-color: rgba(255, 99, 132, 0.7);
+  border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+  animation: floatUp 12s infinite linear;
+}
+
+/* Balloon Knot */
+.balloon::before {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 7px solid inherit;
+  border-bottom-color: inherit;
+}
+
+/* Balloon String */
+.balloon::after {
+  content: "";
+  position: absolute;
+  bottom: -35px;
+  left: 50%;
+  width: 2px;
+  height: 30px;
+  background-color: rgba(150, 150, 150, 0.5);
+  transform: translateX(-50%);
+}
+
+/* Variations in positions, sizes, colors, and speeds */
+.balloon:nth-child(1) {
+  left: 10%;
+  background-color: rgba(255, 99, 132, 0.75);
+  animation-duration: 11s;
+  animation-delay: 0s;
+  transform: scale(0.9);
+}
+
+.balloon:nth-child(2) {
+  left: 30%;
+  background-color: rgba(54, 162, 235, 0.75);
+  animation-duration: 14s;
+  animation-delay: 2s;
+  transform: scale(1.1);
+}
+
+.balloon:nth-child(3) {
+  left: 50%;
+  background-color: rgba(255, 206, 86, 0.75);
+  animation-duration: 10s;
+  animation-delay: 4s;
+  transform: scale(0.8);
+}
+
+.balloon:nth-child(4) {
+  left: 70%;
+  background-color: rgba(75, 192, 192, 0.75);
+  animation-duration: 13s;
+  animation-delay: 1s;
+  transform: scale(1);
+}
+
+.balloon:nth-child(5) {
+  left: 88%;
+  background-color: rgba(153, 102, 255, 0.75);
+  animation-duration: 15s;
+  animation-delay: 3s;
+  transform: scale(1.2);
+}
+
+/* Floating & Swaying Keyframes
+@keyframes floatUp {
+  0% {
+    bottom: -150px;
+    transform: translateX(0) rotate(0deg);
+  }
+  25% {
+    transform: translateX(25px) rotate(4deg);
+  }
+  50% {
+    transform: translateX(-20px) rotate(-4deg);
+  }
+  75% {
+    transform: translateX(15px) rotate(2deg);
+  }
+  100% {
+    bottom: 110vh;
+    transform: translateX(-10px) rotate(-2deg);
+  }
+}
+
+/* Custom keyframes for upward rise and gentle sway */
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-30vh) translateX(25px) rotate(4deg);
+  }
+  50% {
+    transform: translateY(-60vh) translateX(-20px) rotate(-4deg);
+  }
+  75% {
+    transform: translateY(-90vh) translateX(15px) rotate(2deg);
+  }
+  100% {
+    transform: translateY(-120vh) translateX(-10px) rotate(-2deg);
+  }
+}
+
+@keyframes floatDown {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(30vh) translateX(25px) rotate(4deg);
+  }
+  50% {
+    transform: translateY(60vh) translateX(-20px) rotate(-4deg);
+  }
+  75% {
+    transform: translateY(90vh) translateX(15px) rotate(2deg);
+  }
+  100% {
+    transform: translateY(120vh) translateX(-10px) rotate(-2deg);
+  }
+}
+
+.animate-float-balloon {
+  animation: floatUp linear infinite;
+}
+
+.animate-float-flakes {
+  animation: floatDown linear infinite;
+}

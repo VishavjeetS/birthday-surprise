@@ -1,0 +1,90 @@
+body {
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.candle {
+  position: relative;
+  width: 60px;
+  height: 150px;
+  border-radius: 8px;
+}
+
+.wick {
+  position: absolute;
+  border-radius: 8px 8px 4px 4px;
+  width: 100%;
+  height: 100%;
+  display: block;
+  bottom: 0;
+  box-shadow: 4px 7px 10px #4d315016;
+  background: repeating-linear-gradient(
+    135deg,
+    #c44eff 0 9px,
+    #fff3fc 9px 18px
+  );
+}
+
+.flame {
+  position: absolute;
+  top: -55px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 15px;
+  height: 50px;
+  background: gray;
+  border-radius: 50% 50% 20% 20%;
+}
+
+.flame.active {
+  position: absolute;
+  top: -55px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 15px;
+  height: 50px;
+  background: orange;
+  border-radius: 50% 50% 20% 20%;
+  box-shadow:
+    0 0 15px #fffa65,
+    0 0 30px #ff9900;
+  animation: flicker 0.1s infinite alternate;
+}
+
+.glow.active {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 165, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0) 70%
+  );
+  animation: pulse-glow 1.5s infinite alternate;
+}
+
+@keyframes flicker {
+  0% {
+    transform: translateX(-50%) scale(1) rotate(-2deg);
+  }
+  100% {
+    transform: translateX(-50%) scale(1.08) rotate(2deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0% {
+    transform: translateX(-50%) scale(0.9);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateX(-50%) scale(1.2);
+    opacity: 1;
+  }
+}

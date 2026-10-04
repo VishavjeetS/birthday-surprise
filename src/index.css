@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  overflow: hidden;
+}
+
+p {
+  font-family: "HandCaps", sans-serif;
+  /* color: #fff; */
+  margin: 0;
+}
+
+h1 {
+  font-family: "HughIsLife", sans-serif;
+  /* color: #fff; */
+  margin: 0;
+}
+
+h2 {
+  font-family: "HughIsLife", sans-serif;
+  /* color: #fff; */
+  margin: 0;
+}
+
+h3 {
+  font-family: "HandCaps", sans-serif;
+  /* color: #fff; */
+  margin: 0;
+}
+
+span {
+  font-family: "HandCaps", sans-serif;
+  /* color: #fff; */
+  margin: 0;
+}
+
+.font-hugh {
+  font-family: "HughIsLife", sans-serif;
+  margin: 0;
+}
+
+.font-lucy {
+  font-family: "LucySaidOk", sans-serif;
+  margin: 0;
+}
+
+.font-handcaps {
+  font-family: "HandCaps", sans-serif;
+  margin: 0;
+}
+
+.font-sans-serif {
+  font-family: sans-serif;
+  margin: 0;
+}
+
+.font-segoe-ui {
+  font-family: "Segoe UI", sans-serif;
+  margin: 0;
+}
+
+@font-face {
+  font-family: "HughIsLife";
+  src: url("assets/fonts/hugh-is-life-personal-use.italic.ttf")
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "LucySaidOk";
+  src: url("assets/fonts/lucy-said-ok-personal-use.italic.ttf")
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "HandCaps";
+  src: url("assets/fonts/handcaps.regular.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
