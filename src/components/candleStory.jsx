@@ -19,7 +19,7 @@ const CandleStory = () => {
   return (
     <div
       id="candle-story"
-      style={{ display: "flex" }}
+      style={{ display: "none" }}
       className="story flex flex-col gap-4 items-center"
     >
       <h3 className="font-handcaps text-4xl text-white">
@@ -40,7 +40,7 @@ const CandleStory = () => {
           onClick={handleButtonClick}
           className="bg-white/70 cursor-pointer text-black py-2 px-4 rounded-xl font-handcaps"
         >
-          Lets go!
+          Next
         </button>
       )}
     </div>

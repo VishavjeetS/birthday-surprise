@@ -57,7 +57,7 @@ const SkubaCatFlash = () => {
           onClick={handleButtonClick}
           className="absolute top-1/2 left-1/2 translate-x-1/2 -translate-y-1/2 bg-white/70 cursor-pointer text-black py-2 px-4 rounded-xl font-handcaps"
         >
-          Let's go
+          Click Me
         </button>
       ) : (
         <button
@@ -68,7 +68,7 @@ const SkubaCatFlash = () => {
             top: `${buttonLocation.y}px`,
           }}
         >
-          {BUTTON_TEXTS[timesClicked] || "Let's go"}
+          {BUTTON_TEXTS[timesClicked] || "Let's go fr"}
         </button>
       )}
     </div>

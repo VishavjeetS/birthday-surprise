@@ -1,4 +1,5 @@
 import { useState } from "react";
+import useTypeWriter from "../hooks/useTypeWriter";
 
 const MessageStory = () => {
   const [showLetter, setShowLetter] = useState(false);
@@ -14,6 +15,16 @@ const MessageStory = () => {
       }
     });
   };
+
+  const text = [
+    "You mean the world to me. And I would want to put everything in front of you to make you happy.",
+    "I want you to achieve everything we swore and dreamed of together. I have so much trust in you. I'm so proud of you my love.",
+    "Always remember, in your life you'll never be alone. You'll always have me by your side and I'll always be there for you.",
+    "I love you so much Drishty Patel meri pyari Mtallo❤️",
+  ].join("\n\n");
+
+  const displayText = useTypeWriter(text, 50, showLetter);
+
   return (
     <div
       id="message-story"
@@ -24,8 +35,8 @@ const MessageStory = () => {
         Here's a letter for you, my love
       </h3>
 
-      {!showLetter ? (
-        <div className="flex flex-col items-center">
+      {!showLetter && (
+        <div className="flex flex-col items-center pb-5">
           <img
             src="mail.svg"
             alt="mail"
@@ -36,44 +47,31 @@ const MessageStory = () => {
             Tap on envelop to read the message
           </span>
         </div>
-      ) : (
-        <div className="w-full h-full flex flex-col items-center">
-          <div className="bg-white  flex flex-col p-4">
-            <p className="text-black text-xl">Dear Drishty,</p>
-            <p className="text-black text-xl">
-              You mean the world to me. And I would want to put everything in
-              front of you to make you happy.
-            </p>
-            <p className="text-black text-xl">
-              I want you to achieve everything we swore and dreamed of together.
-              I have so much trust in you. I'm so proud of you my love.
-            </p>
-            <p className="text-black text-xl">
-              Always remember, in your life you'll never be alone. You'll always
-              have me by your side and I'll always be there for you.
-            </p>
-            <p className="text-black text-xl">
-              I love you so much Drishty Patel meri pyari Mtallo❤️
-            </p>
+      )}
 
-            <p
-              className="text-black text-xl w-full text-right"
-              style={{ marginTop: 20 }}
-            >
-              Pillu XX
-            </p>
-          </div>
+      <div
+        className={`${showLetter ? "opacity-100" : "opacity-0 hidden"} transform duration-250 transition-opacity w-full h-full flex flex-col items-center`}
+      >
+        <div className="bg-white  flex flex-col p-4 max-w-110 w-full min-h-100">
+          <p className="text-black text-xl">Dear Drishty,</p>
 
-          <div className="mt-5">
-            <button
-              onClick={handleButtonClick}
-              className="bg-white/70 cursor-pointer text-black py-2 px-4 rounded-xl font-handcaps"
-            >
-              Lets go!
-            </button>
+          <div className="text-black text-xl mt-3">
+            <p className="whitespace-pre-line">{displayText}</p>
+            {displayText === text && (
+              <p className="mt-5 w-full text-right">Pillu xx</p>
+            )}
           </div>
         </div>
-      )}
+
+        <div className="mt-5">
+          <button
+            onClick={handleButtonClick}
+            className="bg-white/70 cursor-pointer text-black py-2 px-4 rounded-xl font-handcaps"
+          >
+            Next
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
