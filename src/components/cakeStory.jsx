@@ -87,7 +87,7 @@ const CakeStory = () => {
             onClick={handleButtonClick}
             className="bg-white/70 cursor-pointer text-black py-2 px-4 rounded-xl font-handcaps"
           >
-            Lets go!
+            Next
           </button>
         )}
       </div>

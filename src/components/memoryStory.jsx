@@ -1,5 +1,3 @@
-import React from "react";
-
 const MemoryStory = () => {
   const memoryPhotos = [
     {
@@ -39,6 +37,19 @@ const MemoryStory = () => {
       desc: "What can i say about this, even AI knows the look mtallo gives me. I love you mtallo.",
     },
   ];
+
+  const handleButtonClick = () => {
+    const stories = document.querySelectorAll(".story");
+
+    stories.forEach((story) => {
+      if (story.id === "surprise-story") {
+        story.style.display = "flex";
+      } else {
+        story.style.display = "none";
+      }
+    });
+  };
+
   return (
     <div
       id="memory-story"
@@ -46,7 +57,7 @@ const MemoryStory = () => {
       style={{ display: "none" }}
     >
       <h3 className="font-handcaps text-4xl text-white">
-        Mtallo's Memory until she met me
+        Mtallo's life until she met me
       </h3>
 
       <div className="flex flex-wrap items-center justify-center gap-3.5 gap-y-5 mt-10">
@@ -56,7 +67,7 @@ const MemoryStory = () => {
               <div className="w-62">
                 <div className="w-62 aspect-square bg-gray-600 rounded-tl-xl rounded-tr-xl">
                   <img
-                    src={memoryPhotos[index].img + "s"}
+                    src={memoryPhotos[index].img}
                     alt="memory_image"
                     className="w-full h-full object-cover rounded-tl-xl rounded-tr-xl"
                   />
@@ -75,6 +86,14 @@ const MemoryStory = () => {
             </div>
           );
         })}
+      </div>
+      <div className="mt-5">
+        <button
+          onClick={handleButtonClick}
+          className="bg-white/70 cursor-pointer text-black py-2 px-4 rounded-xl font-handcaps"
+        >
+          Next
+        </button>
       </div>
     </div>
   );
